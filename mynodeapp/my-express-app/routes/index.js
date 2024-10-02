@@ -11,7 +11,7 @@ router.get('/about', function(req, res, next) {
 });
 
 router.get('/kontak', function(req, res, next) {
-  res.render('kontak', { title: 'About Us' });
+  res.render('kontak', { title: 'Kontak' });
 });
 
 
