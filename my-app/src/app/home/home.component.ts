@@ -16,8 +16,11 @@ export class HomeComponent {
 
 
  constructor(){
-  this.housingLocationList = this.housingService.getAllHousingLocation();
- }
+  this.housingService.getAllHousingLocation().then
+  ((housingLocationList : HousingLocation[])=>{
+    this.housingLocationList = housingLocationList;
+  });
+}
   
 }
 //     {

@@ -10,7 +10,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   template: `
-     <article >
+         <article >
       <img class="listing-photo" [src]="housingLocation?.photo"
         alt="Exterior photo of {{housingLocation?.name}}"/>
       <section class="listing-description">
@@ -27,7 +27,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
       </section>
       <section class="listing-apply">
         <h1 class="section-heading">Apply to live here</h1>
-        <form [formGroup]="applyForm" (submit)="submitApplyForm()">
+        <form [formGroup]="applyForm" (submit)="  ()">
           <label for="first-name">First Name</label>
           <input type="text" id="first-name" formControlName="firstName" placeholder="Input first name">
           <label for="last-name">Last Name</label>
@@ -54,8 +54,12 @@ export class DetailsComponent {
   })
   constructor() {
     this.housingLocationId = Number(this.route.snapshot.params['id'])
-    this.housingLocation = this.housingService.getHousingLocationById(this.housingLocationId)
+    this.housingService.getHousingLocationById(this.housingLocationId)
+    .then(housingLocation => {
+      this.housingLocation = housingLocation;
+    })
     console.log(this.housingLocation);
+
   }
   submitApplication(){
      this.housingService.submitApplication(
