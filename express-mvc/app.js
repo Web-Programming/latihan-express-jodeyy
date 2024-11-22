@@ -11,6 +11,8 @@ var usersRouter = require('./app_server/routes/users');
 // Impor modul mahasiswa router
 var mahasiswaRouter = require('./app_server/routes/mahasiswa');
 var app = express();
+var housingRouter = require('./app_server/routes/housing');
+
 
 // view engine setup
 app.set('views', path.join(__dirname,'app_server', 'views'));
@@ -23,6 +25,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/housing', housingRouter);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
