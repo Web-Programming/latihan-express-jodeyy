@@ -1,3 +1,4 @@
+
 const Housing = require("../models/housing");
 
 const Index = async (req,res) => {
